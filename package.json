@@ -40,11 +40,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<your-gh-username>/dsh-unified-market.git"
+    "url": "git+https://github.com/jing-hy/dsh-unified-market.git"
   },
-  "homepage": "https://github.com/<your-gh-username>/dsh-unified-market#readme",
+  "homepage": "https://github.com/jing-hy/dsh-unified-market#readme",
   "bugs": {
-    "url": "https://github.com/<your-gh-username>/dsh-unified-market/issues"
+    "url": "https://github.com/jing-hy/dsh-unified-market/issues"
   },
   "publishConfig": {
     "access": "public"
