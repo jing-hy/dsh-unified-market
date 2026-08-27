@@ -1,5 +1,7 @@
 # dsh-unified-market — 统一插件市场（Unified Plugin Market for DeepSeek Harness）
 
+[![version](https://img.shields.io/badge/version-0.3.0-2563eb)](https://github.com/jing-hy/dsh-unified-market/releases) [![license](https://img.shields.io/badge/license-MIT-green)](./LICENSE) [![node ≥18.18](https://img.shields.io/badge/node-%E2%89%A518.18-339933?logo=nodedotjs&logoColor=white)](https://github.com/jing-hy/dsh-unified-market)
+
 > 一个市场，三个数据源：**精选目录 + GitHub dsh-plugin 生态 + npm registry**。
 > 对 DSH Desktop（EAC）针对性适配，开箱即用的插件安装 / 更新 / 自动更新 / 管理。
 
