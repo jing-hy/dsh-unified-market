@@ -30,6 +30,8 @@
 
 ## 对 EAC 的针对性适配
 
+> **版本适配基线**：当前版本对 **DSH Desktop（EAC）5.1** 与 **dsh 0.1.1-rc.2** 进行过专项适配测试，为推荐的运行组合；其余官方版本的兼容性以桌面壳内置的兼容扫描结果为准。
+
 EAC（DeepSeek Harness Desktop）的 Web UI 跑在**桌面专属 profile `web-desktop`**
 （由主进程通过 `DSH_DESKTOP_PROFILE` 注入）。旧市场中：
 - **zat-dsh-engine** 只认 `DSH_PROFILE`、否则回落选 `web`；
