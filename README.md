@@ -9,6 +9,8 @@
 已下载插件更新面板（一键全部更新 / 逐个更新 / 自动更新三档开关）、更新进度窗口、
 市场自身自更新。
 
+**English**: A unified plugin marketplace for DeepSeek Harness. It merges three sources — the curated awesome-dsh-plugin catalog, the GitHub `dsh-plugin` ecosystem and the npm registry — into one storefront inside DSH Desktop (EAC), with source whitelisting, conflict pre-checks, trial-boot install verification, update management (manual / batch / auto) and `.dshpack` feature-pack management.
+
 > **v0.3.0 起新增「📦 功能包」tab**：EAC 功能包（.dshpack）的安装 / 卸载 / 更新 /
 > 导出 / 回滚与管理（本包承担交互编排层，核心逻辑在 L2 功能包 CLI，见下）。
 
