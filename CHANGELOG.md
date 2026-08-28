@@ -2,6 +2,15 @@
 
 本文件记录 dsh-unified-market 对外可见的变更。
 
+## 0.3.1
+
+- 修复功能包 CLI 定位失败的误导性报错：0.3.0 及之前，「桌面壳未注入
+  `DSH_DESKTOP_RESOURCE_ROOT`」与「CLI 文件不存在（客户端安装不完整或版本
+  过旧）」两种失败统一误报"缺少 DSH_DESKTOP_RESOURCE_ROOT"，用户在桌面端
+  却被提示去桌面端，排障困难。
+- 现 `packCliStatus()` 区分两种原因并给出可行动提示（升级 / 重装桌面客户端），
+  `pack.*` 全部方法同步使用新文案。
+
 ## 0.3.0
 
 - 新增「📦 功能包」tab 与 `pack.*` host 方法：EAC 功能包（.dshpack）的交互编排层

@@ -190,6 +190,11 @@ host 半边运行在 `dsh web` 进程（Cordis plugin，注入 `webServer`）。
 - **0.3.0**（2026）：新增「📦 功能包」tab 与 `pack.*` host 方法 —— EAC 功能包
   （.dshpack）的交互编排层（安装/卸载/更新/导出/回滚/市场浏览 + 官方内核兼容扫描
   联动），SELF_VERSION 与 package.json 同步 0.3.0。
+- **0.3.1**（2026）：修复功能包 CLI 定位失败的误导性报错 —— 0.3.0 及之前，
+  「桌面壳未注入 `DSH_DESKTOP_RESOURCE_ROOT`」与「CLI 文件不存在（客户端安装
+  不完整/版本过旧）」两种失败统一误报"缺少 DSH_DESKTOP_RESOURCE_ROOT"，用户
+  明明在桌面端却被提示去桌面端，排障困难；现 `packCliStatus()` 区分两种原因
+  并给出可行动提示（升级/重装桌面客户端）。
 
 ## 发布
 
