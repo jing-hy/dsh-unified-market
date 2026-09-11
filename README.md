@@ -246,10 +246,15 @@ host 半边运行在 `dsh web` 进程（Cordis plugin，注入 `webServer`）。
   不完整/版本过旧）」两种失败统一误报"缺少 DSH_DESKTOP_RESOURCE_ROOT"，用户
   明明在桌面端却被提示去桌面端，排障困难；现 `packCliStatus()` 区分两种原因
   并给出可行动提示（升级/重装桌面客户端）。
+- **0.4.0**（2026）：profile 配置写入改为**双边同步**（新增 `lib/profile-sync.mjs`
+  唯一写层：每次重读磁盘 / 并集合并 / CAS / 原子写 / 写前校验 / 写后复核回滚 /
+  双文件快照 + 还原）；新增 `profile.state` / `profile.toggle` / `profile.snapshots`
+  / `profile.restore` 四个 host 方法；CLI 操作成功后新增后置增量同步；禁用插件
+  改为主写顶层编辑型行，避免被桌面壳 boot 期 `removeBundledRowDuplicates` 删除。
 
 ## 发布
 
-- **npm**：`npm publish`（包名 `dsh-unified-market`；已发布至 0.2.1）。
+- **npm**：`npm publish`（包名 `dsh-unified-market`；最新版本 0.4.0）。
 - **GitHub**：`github.com/jing-hy/dsh-unified-market`（main 分支）。
 
 ## License
