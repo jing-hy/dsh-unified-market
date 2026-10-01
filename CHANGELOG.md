@@ -2,6 +2,32 @@
 
 本文件记录 dsh-unified-market 对外可见的变更。
 
+## 0.4.1
+
+**修复精选目录在站点改版后「静默塌缩」（issue #1）。**
+
+- `parseSite()` 改为按 `data-cat` 属性识别卡片，不再绑定 `li class="item"`。
+  站点 2026-09 改版把卡片 class 改成 `card`，旧正则恒返回 0 条 —— 而 0 条会被
+  后续兜底盖住，用户看到的是"市场里就这些插件"，不报错也不超时。
+- 修正静态解析的三处标记漂移：
+  - 标题按 `<h3><a href="…"><span class="owner">owner/</span>name</a></h3>` 解析，
+    `owner` 与 `name` 拆开还原；
+  - `data-cmd` **取最后一个** —— 每张卡片的第一个是"通过 dsh-market · 推荐"的
+    通用推广按钮（命令是装 `dshmarket` 自己），取第一个会让解析出的插件**全部
+    装错包**；
+  - 星级优先读 `data-stars`，同时读入 `data-added`；站内相对链接（`/zh/p/…`）
+    补成绝对 URL，并按 `owner/repo` 还原 GitHub 身份（monorepo 子包
+    `repo#packages/sub` → `github.com/owner/repo`），让"已安装/内置"判定与
+    `plugins.json` 同一口径。
+- 新增站点静态 JSON 目录源（`/zh/catalog.json` / `/catalog.json`，全量 4000+
+  条、卡片同构），作为 `plugins.json` 之外的第二个在线源。
+- 两个在线源**并行**发起，单源超时预算 12s（旧实现串行 10s + 10s，单源抖动
+  固定空窗 20s）；权威源 `plugins.json` 保留 4s 优先宽限，超时即用已并行就绪的
+  静态目录 —— 单源失败不再等于整份目录失败。
+- 空目录守卫只看**该源自己的原始 payload**（不被后续合并/兜底掩盖）：任一源
+  解析出 0 条都继续降级，而不是静默返回残缺目录。
+- `whitelistSource()` 注释与行为对齐（该函数只接收已解析目录，自身不发起请求）。
+
 ## 0.4.0
 
 **profile 配置写入从「单向复写」改为「双边同步」。**
